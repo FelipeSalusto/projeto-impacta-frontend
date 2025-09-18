@@ -26,15 +26,26 @@ function App() {
   const getUsers = async () => {
     try {
       const res = await axios.get("http://localhost:8800");
-      setUsers(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
+
+      // 👀 Veja no console a estrutura que o backend devolve
+      console.log("API response:", res.data);
+
+      // Garante que sempre vamos trabalhar com um array
+      const data = Array.isArray(res.data)
+        ? res.data
+        : res.data.data || res.data.users || [];
+
+      setUsers(data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
     } catch (error) {
-      toast.error(error.message || "Erro ao carregar usuários");
+      toast.error(error.message || "Erro ao carregar alunos");
     }
   };
 
   useEffect(() => {
     getUsers();
-  }, [setUsers]);
+    // ⚠️ dependências ajustadas:
+    // não precisa passar setUsers, apenas função pura
+  }, []);
 
   return (
     <>
