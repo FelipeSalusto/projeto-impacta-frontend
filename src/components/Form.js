@@ -8,23 +8,27 @@ const FormContainer = styled.form`
   align-items: flex-end;
   gap: 10px;
   flex-wrap: wrap;
-  background-color: #fff;
+  background-color: #424769;
   padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
+  box-shadow: 0px 0px 5px #6286cfff;
   border-radius: 5px;
+  color: white;
 `;
 
 const InputArea = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #424769;
 `;
 
 const Input = styled.input`
   width: 120px;
   padding: 0 10px;
-  border: 1px solid #bbb;
+  border: none;
   border-radius: 5px;
   height: 40px;
+  background-color: #676f9d;
+  color: white;
 `;
 
 const Label = styled.label``;
@@ -34,8 +38,9 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 5px;
   border: none;
-  background-color: #2c73d2;
-  color: white;
+  background-color: #f9b17a;
+  color: #000;
+  font-weight: bold;
   height: 42px;
 `;
 

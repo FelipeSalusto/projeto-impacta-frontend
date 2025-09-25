@@ -27,10 +27,8 @@ function App() {
     try {
       const res = await axios.get("http://localhost:8800");
 
-      // 👀 Veja no console a estrutura que o backend devolve
       console.log("API response:", res.data);
 
-      // Garante que sempre vamos trabalhar com um array
       const data = Array.isArray(res.data)
         ? res.data
         : res.data.data || res.data.users || [];
@@ -43,14 +41,12 @@ function App() {
 
   useEffect(() => {
     getUsers();
-    // ⚠️ dependências ajustadas:
-    // não precisa passar setUsers, apenas função pura
   }, []);
 
   return (
     <>
       <Container>
-        <Title>Alunos</Title>
+        <Title style={{ color: "#fff" }}>Cadastro de Alunos</Title>
         <Form onEdit={onEdit} setOnEdit={setOnEdit} getUsers={getUsers} />
         <Grid setOnEdit={setOnEdit} users={users} setUsers={setUsers} />
       </Container>

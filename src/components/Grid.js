@@ -6,13 +6,14 @@ import { toast } from "react-toastify";
 
 const Table = styled.table`
   width: 100%;
-  background-color: #fff;
+  background-color: #424769;
   padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
+  box-shadow: 0px 0px 5px #6286cfff;
   border-radius: 5px;
   max-width: 1120px;
   margin: 20px auto;
   word-break: break-all;
+  color: white;
 `;
 
 export const Thead = styled.thead``;
@@ -80,10 +81,16 @@ const Grid = ({ users, setUsers, setOnEdit }) => {
               {item.fone}
             </Td>
             <Td alignCenter width="5%">
-              <FaEdit onClick={() => handleEdit(item)} />
+              <FaEdit
+                onClick={() => handleEdit(item)}
+                style={{ cursor: "pointer" }}
+              />
             </Td>
             <Td alignCenter width="5%">
-              <FaTrash onClick={() => handleDelete(item.id)} />
+              <FaTrash
+                onClick={() => handleDelete(item.id)}
+                style={{ cursor: "pointer" }}
+              />
             </Td>
           </Tr>
         ))}
